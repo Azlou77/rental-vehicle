@@ -1,3 +1,6 @@
-String sql = "SELECT * FROM utilisateurs WHERE email = ?";
-PreparedStatement stmt = connection.prepareStatement(sql);
-stmt.setString(1, email);
+String query = "SELECT * FROM users WHERE username = ?";
+PreparedStatement pstmt = connection.prepareStatement(query);
+pstmt.setString(1, userInput);
+ResultSet rs = pstmt.executeQuery();
+
+

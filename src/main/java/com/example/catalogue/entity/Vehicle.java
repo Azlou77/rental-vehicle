@@ -1,54 +1,69 @@
 package com.example.catalogue.entity;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public abstract class Vehicle {
+public  class Vehicle {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	// Attributs
 	private Long idVehicle;
 	private int registrationNumber;
-	private String vehicle_type;
-    private String vehicle_brand;
-    private String vehicle_modele;
-    private int vehicle_fiscalHorsepower;
+	private String vehicleType;
+    private String vehicleBrand;
+    private String vehicleModele;
+    private int vehicleFiscalHorsepower;
     
     
-    // Getters and Setters
+    public Vehicle() {
+    }
+
+	// Getters and Setters
 	public int getRegistrationNumber() {
 		return registrationNumber;
 	}
 	public void setRegistrationNumber(int registrationNumber) {
 		this.registrationNumber = registrationNumber;
 	}
-	public String getVehicle_type() {
-		return vehicle_type;
+
+	public String getVehicleType() {
+		return vehicleType;
 	}
-	public void setVehicle_type(String vehicle_type) {
-		this.vehicle_type = vehicle_type;
+
+	public void setVehicleType(String vehicleType) {
+		this.vehicleType = vehicleType;
 	}
-	public String getVehicle_brand() {
-		return vehicle_brand;
+
+	public String getVehicleBrand() {
+		return vehicleBrand;
 	}
-	public void setVehicle_brand(String vehicle_brand) {
-		this.vehicle_brand = vehicle_brand;
+
+	public void setVehicleBrand(String vehicleBrand) {
+		this.vehicleBrand = vehicleBrand;
 	}
-	public String getVehicle_modele() {
-		return vehicle_modele;
+
+
+	public String getVehicleModele() {
+		return vehicleModele;
 	}
-	public void setVehicle_modele(String vehicle_modele) {
-		this.vehicle_modele = vehicle_modele;
+
+
+	public void setVehicleModele(String vehicleModele) {
+		this.vehicleModele = vehicleModele;
 	}
-	public int getVehicle_fiscalHorsepower() {
-		return vehicle_fiscalHorsepower;
+
+	public int getVehicleFiscalHorsepower() {
+		return vehicleFiscalHorsepower;
 	}
-	public void setVehicle_fiscalHorsepower(int vehicle_fiscalHorsepower) {
-		this.vehicle_fiscalHorsepower = vehicle_fiscalHorsepower;
+
+	public void setVehicleFiscalHorsepower(int vehicleFiscalHorsepower) {
+		this.vehicleFiscalHorsepower = vehicleFiscalHorsepower;
 	}
+	
 
 }

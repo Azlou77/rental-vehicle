@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Catalogue des véhicules</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Catalogue des véhicules</h1>
+
+    <div th:each="vehicle : ${vehicles}">
+        <hr>
+        <h2 th:text="${vehicle.vehicleModele}"></h2>
+        <p><strong>Marque :</strong> <span th:text="${vehicle.vehicleBrand}"></span></p>
+        <p><strong>Catégorie :</strong> <span th:text="${vehicle.vehicleType}"></span></p>
+        <p><strong>Immatriculation :</strong> <span th:text="${vehicle.registrationNumber}"></span></p>
+        <p><strong>Chevaux fiscaux :</strong> <span th:text="${vehicle.vehicleFiscalHorsepower}"></span></p>
+    </div>
+</body>
+</html>
