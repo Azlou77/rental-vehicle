@@ -23,9 +23,11 @@ public class VehicleService {
 	        return vehicleRepository.findByVehicleType(vehicle_type);
 	    }
 	    
-	    public Optional<Vehicle> getVehiclesById(Long idVehicle){
-	    	return vehicleRepository.findById(idVehicle);
+	    public Vehicle getVehicleById(Long idVehicle) {
+	        return vehicleRepository.findById(idVehicle)
+	            .orElseThrow(() -> new RuntimeException("Véhicule non trouvé"));
 	    }
+
 }
 
 

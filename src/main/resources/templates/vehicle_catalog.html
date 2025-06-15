@@ -18,7 +18,7 @@
                         <p><strong>Catégorie :</strong> <span th:text="${vehicle.vehicleType}"></span></p>
                         <p><strong>Immatriculation :</strong> <span th:text="${vehicle.registrationNumber}"></span></p>
                         <p><strong>Chevaux fiscaux :</strong> <span th:text="${vehicle.vehicleFiscalHorsepower}"></span></p>
-                        <button type="button" class="btn btn-primary" onclick="location.href='/your-target-url'">Go to Page</button>
+                        <a class="btn btn-primary" th:href="@{'/vehicles/' + ${vehicle.idVehicle}}">Go to Page</a>
                     </div>
                 </div>
             </div>

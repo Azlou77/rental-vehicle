@@ -27,6 +27,14 @@ public  class Vehicle {
         this.vehicleBrand = vehicleBrand;
         this.vehicleType = vehicleType;
     }
+    
+
+    public Long getIdVehicle() {
+            return idVehicle;
+    }
+    
+   
+
 
 	// Getters and Setters
 	public int getRegistrationNumber() {
