@@ -6,6 +6,8 @@ import com.example.catalogue.entity.Vehicle;
 
 public interface VehicleRepository extends JpaRepository<Vehicle, Long>{
 	List<Vehicle> findByVehicleType(String vehicle_type);
+	List<Vehicle> findByVehicleId(Long idVehicle);
+	
 }
 
 

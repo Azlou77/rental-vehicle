@@ -21,6 +21,12 @@ public class VehicleController {
 	        model.addAttribute("vehicles", vehicleService.getAllVehicles());
 	        return "vehicle_catalog";
 	    }
+	    
+	    @GetMapping 
+	    public String showOneVehicle(Model model) {
+	    	model.addAttribute("vehicles/{idVehicle}", vehicleService.getVehiclesById(null));
+	    	return "vehicle_catalog_details";
+	    }
 }
 
 

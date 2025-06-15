@@ -1,7 +1,7 @@
 package com.example.catalogue.service;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +21,10 @@ public class VehicleService {
 
 	    public List<Vehicle> getVehiclesByType(String vehicle_type) {
 	        return vehicleRepository.findByVehicleType(vehicle_type);
+	    }
+	    
+	    public Optional<Vehicle> getVehiclesById(Long idVehicle){
+	    	return vehicleRepository.findById(idVehicle);
 	    }
 }
 

@@ -1,0 +1,12 @@
+
+    body {
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+    }
+    .vehicle {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        background-color: white;
+    }
+
