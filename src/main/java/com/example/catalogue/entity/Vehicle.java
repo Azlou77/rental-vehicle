@@ -22,6 +22,11 @@ public  class Vehicle {
     
     public Vehicle() {
     }
+    public Vehicle(String vehicleModele, String vehicleBrand, String vehicleType) {
+        this.vehicleModele = vehicleModele;
+        this.vehicleBrand = vehicleBrand;
+        this.vehicleType = vehicleType;
+    }
 
 	// Getters and Setters
 	public int getRegistrationNumber() {
