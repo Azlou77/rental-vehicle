@@ -40,7 +40,7 @@ class VehicleServiceTest {
             .hasSize(2)
             .containsExactly(v1, v2);
 
-        verify(vehicleRepository, times(1)).findAll(); // ✅ Vérifier l'appel au repository
+        verify(vehicleRepository, times(1)).findAll();
         System.out.println("✅ Test terminé avec succès !");
     }
 
