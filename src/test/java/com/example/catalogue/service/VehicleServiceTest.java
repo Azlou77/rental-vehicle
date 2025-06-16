@@ -1,6 +1,7 @@
 package com.example.catalogue.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.mockito.Mockito.*;
 
 import java.util.List;
@@ -24,8 +25,8 @@ class VehicleServiceTest {
     private VehicleService vehicleService;
 
     @Test
-    void getAllVehicles_shouldReturnListOfVehicles() {
-        System.out.println("🔹 Début du test : getAllVehicles_shouldReturnListOfVehicles");
+    void shouldAllVehicles() {
+        System.out.println("🔹 Début du test : shouldAllVehicles");
 
         // Arrange – Simulation des données
         Vehicle v1 = new Vehicle("Tesla", "Tesla", "Electric");
@@ -36,17 +37,17 @@ class VehicleServiceTest {
         List<Vehicle> vehicles = vehicleService.getAllVehicles();
 
         // Assert – Vérifications
-        assertThat(vehicles)
-            .hasSize(2)
-            .containsExactly(v1, v2);
-
+        assertEquals(2, vehicles.size());
+        assertIterableEquals(List.of(v1,v2), vehicles);
+        
+        
         verify(vehicleRepository, times(1)).findAll();
         System.out.println("✅ Test terminé avec succès !");
     }
 
     @Test
-    void getVehiclesByType_shouldReturnFilteredList() {
-        System.out.println("🔹 Début du test : getVehiclesByType_shouldReturnFilteredList");
+    void shouldReturnVehiclesByType() {
+        System.out.println("🔹 Début du test : shouldReturnVehiclesByType");
 
         // Arrange – Simulation des données
         Vehicle electricCar = new Vehicle("Tesla", "Tesla", "Electric");
@@ -57,11 +58,15 @@ class VehicleServiceTest {
         List<Vehicle> electricVehicles = vehicleService.getVehiclesByType("Electric");
 
         // Assert – Vérifications
-        assertThat(electricVehicles)
-            .hasSize(1)
-            .containsExactly(electricCar);
+        assertEquals(1, electricVehicles.size());
+        assertIterableEquals(List.of(electricCar), electricVehicles);
+        
 
         verify(vehicleRepository, times(1)).findByVehicleType("Electric");
         System.out.println("✅ Test de filtrage réussi !");
     }
+    
+    
+    
+    
 }
