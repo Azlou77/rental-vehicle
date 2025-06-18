@@ -24,8 +24,8 @@ class VehicleRepositoryTest {
 
         // Arrange – Simuler les données retournées par le repository
         List<Vehicle> mockVehicles = List.of(
-            new Vehicle("Tesla", "Tesla", "Electric"),
-            new Vehicle("Modele 3", "Yamaha", "Motorbike")
+            new Vehicle((long) 1, "Tesla", "Tesla", "Electric"),
+            new Vehicle((long) 2, "Modele 3", "Yamaha", "Motorbike")
         );
 
         System.out.println("Mock des données initialisé");

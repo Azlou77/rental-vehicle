@@ -20,9 +20,13 @@ public  class Vehicle {
     private int vehicleFiscalHorsepower;
     
     
+    
+    // Constructors
     public Vehicle() {
     }
-    public Vehicle(String vehicleModele, String vehicleBrand, String vehicleType) {
+    
+    public Vehicle(Long idVehicle, String vehicleModele, String vehicleBrand, String vehicleType) {
+    	this.idVehicle = idVehicle;
         this.vehicleModele = vehicleModele;
         this.vehicleBrand = vehicleBrand;
         this.vehicleType = vehicleType;
@@ -33,9 +37,6 @@ public  class Vehicle {
             return idVehicle;
     }
     
-   
-
-
 	// Getters and Setters
 	public int getRegistrationNumber() {
 		return registrationNumber;

@@ -28,8 +28,8 @@ public class VehicleControllerTest {
 	@Test
 	void shouldReturnVehicleCatalogWithModel() throws Exception {
 		List<Vehicle> mockVehicles = List.of(
-				new Vehicle("Mustang", "Ford", "Coupé"),
-				new Vehicle("Leaf", "Nissan", "Électrique")
+				new Vehicle((long) 1, "Mustang", "Ford", "Coupé"),
+				new Vehicle((long) 2, "Leaf", "Nissan", "Électrique")
 		);
 
 		Mockito.when(vehicleService.getAllVehicles()).thenReturn(mockVehicles);
@@ -40,4 +40,5 @@ public class VehicleControllerTest {
         .andExpect(jsonPath("$[0].vehicleModele").value("Mustang"))
         .andExpect(jsonPath("$[1].vehicleModele").value("Leaf"));
 	}
+	
 }
