@@ -28,6 +28,12 @@ public class VehicleController {
 	        model.addAttribute("vehicle", vehicleService.getVehicleById(idVehicle));
 	        return "vehicle_catalog_details";
 	    }
+	    
+	    @GetMapping("/login")
+	    public String login() {
+	        return "login"; // Affiche la vue login.html
+	    }
+
 }
 
 
