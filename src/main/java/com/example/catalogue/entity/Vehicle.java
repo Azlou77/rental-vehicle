@@ -1,7 +1,10 @@
 package com.example.catalogue.entity;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,6 +21,9 @@ public  class Vehicle {
 	private String motorizationType;
     private String brand;
     private String model;
+    
+    @Enumerated(EnumType.STRING)
+    private Status status;
     private int fiscalHorsepower;
     
     

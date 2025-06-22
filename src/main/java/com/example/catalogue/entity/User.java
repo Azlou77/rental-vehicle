@@ -17,9 +17,14 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+    
+    private String address;
+    
+    private String phoneNumber;
+    
+    
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private Role role;
 
     // Constructeur vide
@@ -73,4 +78,20 @@ public class User {
     public void setRole(Role role) {
         this.role = role;
     }
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 }

@@ -30,7 +30,7 @@ public class VehicleControllerTest {
     private VehicleService vehicleService;
 
     @Test
-    void shouldReturnVehicleCatalogWithModel() throws Exception {
+    void shouldReturnVehicleCatalogView() throws Exception {
         List<Vehicle> mockVehicles = List.of(
             new Vehicle(1L, "Mustang", "Ford", "Coupé"),
             new Vehicle(2L, "Leaf", "Nissan", "Électrique")
@@ -38,17 +38,9 @@ public class VehicleControllerTest {
 
         Mockito.when(vehicleService.getAllVehicles()).thenReturn(mockVehicles);
 
-        MvcResult result = mockMvc.perform(get("/vehicles"))
-        	    .andExpect(status().isOk())
-        	    .andReturn();
-
-        	String json = result.getResponse().getContentAsString();
-
-        	ObjectMapper mapper = new ObjectMapper();
-        	JsonNode jsonNode = mapper.readTree(json);
-        	String prettyJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
-
-        	System.out.println("✅ JSON formaté :\n" + prettyJson);
+        mockMvc.perform(get("/vehicles"))
+            .andExpect(status().isOk())
+            .andExpect(view().name("vehicle_catalog"))
+            .andExpect(model().attributeExists("vehicles"));
     }
- 
 }

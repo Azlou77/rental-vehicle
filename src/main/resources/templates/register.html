@@ -9,7 +9,7 @@
 <body>
 <div class="container mt-5">
     <h2>Créer un compte</h2>
-    <form th:action="@{/register}" th:object="${user}" method="post">
+    <form th:action="@{/auth/register}" th:object="${user}" method="post">
         <div class="mb-3">
             <label for="firstname" class="form-label">Prénom</label>
             <input type="text" class="form-control" id="firstname" th:field="*{firstname}" required>
@@ -26,13 +26,7 @@
             <label for="password" class="form-label">Mot de passe</label>
             <input type="password" class="form-control" id="password" th:field="*{password}" required>
         </div>
-        <div class="mb-3">
-            <label for="role" class="form-label">Rôle</label>
-            <select class="form-select" id="role" th:field="*{role}" required>
-                <option th:value="CLIENT">Client</option>
-                <option th:value="ADMIN">Admin</option>
-            </select>
-        </div>
+        
         <button type="submit" class="btn btn-primary">S'enregistrer</button>
     </form>
 </div>
