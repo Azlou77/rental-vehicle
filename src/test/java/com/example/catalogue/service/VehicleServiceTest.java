@@ -53,7 +53,7 @@ class VehicleServiceTest {
         // Arrange – Simulation des données
         Vehicle electricCar = new Vehicle((long) 1,"Tesla", "Tesla", "Electric");
         Vehicle motorbike = new Vehicle((long) 2,"Yamaha", "Modele 3", "Motorbike");
-        when(vehicleRepository.findByVehicleType("Electric")).thenReturn(List.of(electricCar));
+        when(vehicleRepository.findByType("Electric")).thenReturn(List.of(electricCar));
 
         // Act – Appel du service
         List<Vehicle> electricVehicles = vehicleService.getVehiclesByType("Electric");
@@ -63,7 +63,7 @@ class VehicleServiceTest {
         assertIterableEquals(List.of(electricCar), electricVehicles);
         
 
-        verify(vehicleRepository, times(1)).findByVehicleType("Electric");
+        verify(vehicleRepository, times(1)).findByType("Electric");
         System.out.println("✅ Test de filtrage réussi !");
     }
     

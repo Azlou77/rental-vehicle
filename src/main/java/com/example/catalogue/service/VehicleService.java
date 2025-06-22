@@ -19,8 +19,8 @@ public class VehicleService {
 	        return vehicleRepository.findAll();
 	    }
 
-	    public List<Vehicle> getVehiclesByType(String vehicle_type) {
-	        return vehicleRepository.findByVehicleType(vehicle_type);
+	    public List<Vehicle> getVehiclesByType(String type) {
+	        return vehicleRepository.findByType(type);
 	    }
 	    
 	    public Vehicle getVehicleById(Long idVehicle) {

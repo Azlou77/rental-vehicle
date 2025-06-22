@@ -42,7 +42,7 @@ class VehicleRepositoryTest {
         System.out.println("✅ Nombre d'éléments correct");
 
         System.out.println("Validation des valeurs...");
-        assertEquals("Tesla", result.get(0).getVehicleModele());
+        assertEquals("Tesla", result.get(0).getModel());
         System.out.println("✅ Première valeur correcte");
 
         // Vérifier que `findAll()` est bien appelé une fois

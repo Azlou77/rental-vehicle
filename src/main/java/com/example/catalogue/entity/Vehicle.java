@@ -14,10 +14,11 @@ public  class Vehicle {
 	// Attributs
 	private Long idVehicle;
 	private int registrationNumber;
-	private String vehicleType;
-    private String vehicleBrand;
-    private String vehicleModele;
-    private int vehicleFiscalHorsepower;
+	private String type;
+	private String motorizationType;
+    private String brand;
+    private String model;
+    private int fiscalHorsepower;
     
     
     
@@ -25,11 +26,11 @@ public  class Vehicle {
     public Vehicle() {
     }
     
-    public Vehicle(Long idVehicle, String vehicleModele, String vehicleBrand, String vehicleType) {
+    public Vehicle(Long idVehicle, String modele, String brand, String type) {
     	this.idVehicle = idVehicle;
-        this.vehicleModele = vehicleModele;
-        this.vehicleBrand = vehicleBrand;
-        this.vehicleType = vehicleType;
+        this.model = modele;
+        this.brand = brand;
+        this.type = type;
     }
     
 
@@ -45,38 +46,46 @@ public  class Vehicle {
 		this.registrationNumber = registrationNumber;
 	}
 
-	public String getVehicleType() {
-		return vehicleType;
+	public String getType() {
+		return type;
 	}
 
-	public void setVehicleType(String vehicleType) {
-		this.vehicleType = vehicleType;
+	public void setType(String type) {
+		this.type = type;
 	}
 
-	public String getVehicleBrand() {
-		return vehicleBrand;
+	public String getBrand() {
+		return brand;
 	}
 
-	public void setVehicleBrand(String vehicleBrand) {
-		this.vehicleBrand = vehicleBrand;
-	}
-
-
-	public String getVehicleModele() {
-		return vehicleModele;
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 
 
-	public void setVehicleModele(String vehicleModele) {
-		this.vehicleModele = vehicleModele;
+	public String getModel() {
+		return model;
 	}
 
-	public int getVehicleFiscalHorsepower() {
-		return vehicleFiscalHorsepower;
+
+	public void setModel(String model) {
+		this.model = model;
 	}
 
-	public void setVehicleFiscalHorsepower(int vehicleFiscalHorsepower) {
-		this.vehicleFiscalHorsepower = vehicleFiscalHorsepower;
+	public int getFiscalHorsepower() {
+		return fiscalHorsepower;
+	}
+
+	public void setFiscalHorsepower(int fiscalHorsepower) {
+		this.fiscalHorsepower = fiscalHorsepower;
+	}
+
+	public String getMotorizationType() {
+		return motorizationType;
+	}
+
+	public void setMotorizationType(String motorizationType) {
+		this.motorizationType = motorizationType;
 	}
 	
 

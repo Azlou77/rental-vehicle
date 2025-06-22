@@ -13,11 +13,11 @@
             <div th:each="vehicle : ${vehicles}" class="col-md-4">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title" th:text="${vehicle.vehicleModele}"></h5>
-                        <p><strong>Marque :</strong> <span th:text="${vehicle.vehicleBrand}"></span></p>
-                        <p><strong>Catégorie :</strong> <span th:text="${vehicle.vehicleType}"></span></p>
+                        <h5 class="card-title" th:text="${vehicle.model}"></h5>
+                        <p><strong>Marque :</strong> <span th:text="${vehicle.brand}"></span></p>
+                        <p><strong>Catégorie :</strong> <span th:text="${vehicle.type}"></span></p>
                         <p><strong>Immatriculation :</strong> <span th:text="${vehicle.registrationNumber}"></span></p>
-                        <p><strong>Chevaux fiscaux :</strong> <span th:text="${vehicle.vehicleFiscalHorsepower}"></span></p>
+                        <p><strong>Chevaux fiscaux :</strong> <span th:text="${vehicle.fiscalHorsepower}"></span></p>
                         <a class="btn btn-primary" th:href="@{'/vehicles/' + ${vehicle.idVehicle}}">Go to Page</a>
                     </div>
                 </div>

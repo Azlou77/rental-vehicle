@@ -1,60 +1,76 @@
 package com.example.catalogue.entity;
 
+import jakarta.persistence.*;
 
+@Entity
+public class User {
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idUser;
 
-@MappedSuperclass
-public abstract class User {
+    private String firstname;
+    private String lastname;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	// Attributs
-	private Long idUser;
+    @Column(unique = true, nullable = false)
+    private String email;
 
-	private String firstname;
-	private String lastname;
-	private String email;
-	private String password;
-	
-	@Enumerated(EnumType.STRING)
-    private Role role; // Enum pour différencier ADMIN / CLIENT
+    @Column(nullable = false)
+    private String password;
 
-	public String getFirstname() {
-		return firstname;
-	}
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
+    // Constructeur vide
+    public User() {}
 
-	public String getLastname() {
-		return lastname;
-	}
+    // Getters & Setters
+    public Long getIdUser() {
+        return idUser;
+    }
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getFirstname() {
+        return firstname;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getLastname() {
+        return lastname;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 }

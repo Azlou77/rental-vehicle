@@ -1,5 +1,4 @@
 package com.example.catalogue.controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -8,8 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.example.catalogue.service.VehicleService;
+
 @Controller
 @RequestMapping("/vehicles")
 public class VehicleController {
@@ -28,13 +27,4 @@ public class VehicleController {
 	        model.addAttribute("vehicle", vehicleService.getVehicleById(idVehicle));
 	        return "vehicle_catalog_details";
 	    }
-	    
-	    @GetMapping("/login")
-	    public String login() {
-	        return "login"; // Affiche la vue login.html
-	    }
-
 }
-
-
-

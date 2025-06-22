@@ -9,13 +9,13 @@
     <div class="container mt-5">
         <div class="card shadow-sm">
             <div class="card-header bg-primary text-white">
-                <h3 th:text="${vehicle.vehicleModele}"></h3>
+                <h3 th:text="${vehicle.model}"></h3>
             </div>
             <div class="card-body">
-                <p><strong>Marque :</strong> <span th:text="${vehicle.vehicleBrand}"></span></p>
-                <p><strong>Catégorie :</strong> <span th:text="${vehicle.vehicleType}"></span></p>
+                <p><strong>Marque :</strong> <span th:text="${vehicle.brand}"></span></p>
+                <p><strong>Catégorie :</strong> <span th:text="${vehicle.type}"></span></p>
                 <p><strong>Immatriculation :</strong> <span th:text="${vehicle.registrationNumber}"></span></p>
-                <p><strong>Chevaux fiscaux :</strong> <span th:text="${vehicle.vehicleFiscalHorsepower}"></span></p>
+                <p><strong>Chevaux fiscaux :</strong> <span th:text="${vehicle.fiscalHorsepower}"></span></p>
             </div>
             <div class="card-footer text-end">
                 <a href="/vehicles" class="btn btn-secondary">Retour au catalogue</a>
