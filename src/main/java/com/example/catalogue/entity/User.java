@@ -1,83 +1,94 @@
 package com.example.catalogue.entity;
 
+
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 public class User {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idUser;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUser;
+	@Pattern(
+		    regexp = "^[\\p{Lu}][\\p{Ll}]+$",
+		    message = "Doit commencer par une majuscule suivie de lettres minuscules, sans chiffres, espaces ni caractères spéciaux"
+		)
+	private String firstname;
+	
+	@Pattern(
+		    regexp = "^[\\p{Lu}][\\p{Ll}]+$",
+		    message = "Doit commencer par une majuscule suivie de lettres minuscules, sans chiffres, espaces ni caractères spéciaux"
+		)
+	private String lastname;
 
-    private String firstname;
-    private String lastname;
+	@Column(unique = true, nullable = false)
+	private String email;
 
-    @Column(unique = true, nullable = false)
-    private String email;
+	@Column(nullable = false)
+	private String password;
 
-    @Column(nullable = false)
-    private String password;
-    
-    private String address;
-    
-    private String phoneNumber;
-    
-    
+	private String address;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
+	private String phoneNumber;
 
-    // Constructeur vide
-    public User() {}
+	@Enumerated(EnumType.STRING)
+	private Role role;
 
-    // Getters & Setters
-    public Long getIdUser() {
-        return idUser;
-    }
+	// Constructeur vide
+	public User() {
+	}
 
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
-    }
+	// Getters & Setters
+	public Long getIdUser() {
+		return idUser;
+	}
 
-    public String getFirstname() {
-        return firstname;
-    }
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
+	}
+	
+	
+	public String getFirstName() {
+		return firstname;
+	}
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+	public void setFirstName(String firstname) {
+		this.firstname = firstname;
+	}
 
-    public String getLastname() {
-        return lastname;
-    }
+	public String getLastName() {
+		return lastname;
+	}
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
+	public void setLastName(String lastname) {
+		this.lastname = lastname;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public Role getRole() {
-        return role;
-    }
+	public Role getRole() {
+		return role;
+	}
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
+	public void setRole(Role role) {
+		this.role = role;
+	}
 
 	public String getAddress() {
 		return address;

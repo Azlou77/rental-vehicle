@@ -1,7 +1,4 @@
-INSERT INTO vehicle (vehicle_model, vehicle_brand, vehicle_type)
-VALUES 
-  ('208', 'Peugeot', 'essence'),
-  ('Model 3', 'Tesla', 'électrique'),
-  ('Clio', 'Renault', 'hybride'),
-  ('Golf', 'Volkswagen', 'essence'),
-  ('Kona', 'Hyundai', 'électrique');
+INSERT INTO user (id, email, password, role) VALUES
+(1, 'user@example.com', '$2a$10$Abcd1234567890HashedPasswordExemple', 'USER'); 
+
+
