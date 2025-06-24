@@ -33,22 +33,28 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-            .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/reservation/**").authenticated()
+                .anyRequest().permitAll()
+            )
             .csrf(Customizer.withDefaults())
             .formLogin(form -> form
                 .loginPage("/auth/login")
                 .loginProcessingUrl("/auth/login")
                 .defaultSuccessUrl("/vehicles", true)
                 .failureUrl("/auth/login?error=true")
-                .permitAll())
+                .permitAll()
+            )
             .logout(logout -> logout
-                .logoutUrl("/auth/logout") 
-                .logoutSuccessUrl("/vehicles") 
+                .logoutUrl("/auth/logout")
+                .logoutSuccessUrl("/vehicles")
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
-                .permitAll())
+                .permitAll()
+            )
             .build();
     }
+
 
 
 
