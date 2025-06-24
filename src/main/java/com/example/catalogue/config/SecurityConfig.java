@@ -30,14 +30,25 @@ public class SecurityConfig {
 		return new BCryptPasswordEncoder();
 	}
 
-  
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		return http.authorizeHttpRequests(auth -> auth.anyRequest().permitAll()).csrf(Customizer.withDefaults())
-				.formLogin(form -> form.loginPage("/auth/login").loginProcessingUrl("/auth/login")
-						.defaultSuccessUrl("/vehicles", true).failureUrl("/auth/login?error=true").permitAll())
-				.build();
-	}
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        return http
+            .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
+            .csrf(Customizer.withDefaults())
+            .formLogin(form -> form
+                .loginPage("/auth/login")
+                .loginProcessingUrl("/auth/login")
+                .defaultSuccessUrl("/vehicles", true)
+                .failureUrl("/auth/login?error=true")
+                .permitAll())
+            .logout(logout -> logout
+                .logoutUrl("/auth/logout") 
+                .logoutSuccessUrl("/vehicles") 
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+                .permitAll())
+            .build();
+    }
 
 
 

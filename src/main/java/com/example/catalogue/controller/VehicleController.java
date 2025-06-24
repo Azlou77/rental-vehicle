@@ -20,10 +20,14 @@ public class VehicleController {
 
 	    @GetMapping
 	    public String showVehicles(Model model, @AuthenticationPrincipal CustomUserDetails user) {
-	        model.addAttribute("firstName", capitalize(user.getFirstName()));
-	        model.addAttribute("lastName", capitalize(user.getLastName()));
+	        if (user != null) {
+	            model.addAttribute("firstName", capitalize(user.getFirstName()));
+	            model.addAttribute("lastName", capitalize(user.getLastName()));
+	        }
+	        model.addAttribute("vehicles", vehicleService.getAllVehicles());
 	        return "vehicle_catalog";
 	    }
+
 
 
 	    private String capitalize(String str) {
