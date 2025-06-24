@@ -12,6 +12,22 @@ public class Reservation {
     private LocalDate dateBegin;
 
     private LocalDate dateEnd;
+    
+    @ManyToOne
+    private Vehicle vehicle;
+
+    @ManyToOne
+    private Garage garage;
+    
+    
+    // Constructeurs
+
+    public Reservation() {}
+
+    public Reservation(LocalDate dateBegin, LocalDate dateEnd) {
+        this.dateBegin = dateBegin;
+        this.dateEnd = dateEnd;
+    }
 
     // Getters et Setters
 
@@ -38,13 +54,23 @@ public class Reservation {
     public void setDateEnd(LocalDate dateEnd) {
         this.dateEnd = dateEnd;
     }
-
-    // Constructeurs
-
-    public Reservation() {}
-
-    public Reservation(LocalDate dateBegin, LocalDate dateEnd) {
-        this.dateBegin = dateBegin;
-        this.dateEnd = dateEnd;
+    
+    public Vehicle getVehicle() {
+        return vehicle;
     }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+    
+    public void setGarage(Garage garage) {
+        this.garage = garage;
+    }
+
+    public Garage getGarage() {
+        return garage;
+    }
+
+
+    
 }

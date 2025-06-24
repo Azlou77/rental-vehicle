@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Réservation</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Réserver le véhicule [[${vehicle.brand}]] [[${vehicle.model}]]</h2>
+
+    <form th:action="@{/reservation/save}" method="post">
+        <input type="hidden" th:name="idVehicle" th:value="${vehicle.idVehicle}"/>
+
+			<div class="mb-3">
+				<label for="garageId" class="form-label">Lieu de retrait :</label> 
+				<select id="idGarage" name="idGarage" class="form-select" required>
+					<option th:each="g : ${garages}" th:value="${g.idGarage}"
+						th:text="${g.name} + ' - ' + ${g.address}">
+					</option>
+				</select>
+			</div>
+
+
+			<div class="mb-3">
+            <label for="dateBegin" class="form-label">Date de début :</label>
+            <input type="date" name="dateBegin" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="dateEnd" class="form-label">Date de fin :</label>
+            <input type="date" name="dateEnd" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Valider la réservation</button>
+    </form>
+</div>
+</body>
+</html>

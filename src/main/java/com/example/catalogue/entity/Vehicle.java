@@ -8,6 +8,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public  class Vehicle {
@@ -26,7 +28,10 @@ public  class Vehicle {
     private Status status;
     private int fiscalHorsepower;
     
-    
+    @ManyToOne
+    @JoinColumn(name = "garage_id")
+    private Garage garage;
+
     
     // Constructors
     public Vehicle() {
